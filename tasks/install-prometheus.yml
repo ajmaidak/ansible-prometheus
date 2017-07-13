@@ -9,6 +9,8 @@
       set_fact:
         prometheus_subdir: "{{ prometheus_install_path }}/prometheus-{{ prometheus_version }}.{{ prometheus_platform_suffix }}"
         prometheus_tarball_url: "https://github.com/prometheus/prometheus/releases/download/v{{ prometheus_version }}/prometheus-{{ prometheus_version }}.{{ prometheus_platform_suffix }}.tar.gz"
+    - name: set internal variables for convenience - prometheus_daemon_dir
+      set_fact:
         prometheus_daemon_dir: "{{ prometheus_subdir }}"
     - name: download and untar prometheus tarball
       unarchive:
